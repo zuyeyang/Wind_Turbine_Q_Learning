@@ -108,24 +108,26 @@ function compute(infile, outfile)
 
     tick()
     gamma = 0.95 # discount factor
-    if infile[6]=='s'
+    print("S may be defined")
+    if infile[1]=='d'
         # For small dataset
-        S = collect(1:100)
-        A = collect(1:4)
-    elseif infile[6]=='m'
+        print("S is defined")
+        S = collect(1:28634)
+        A = collect(1:20)
+    elseif infile[1]=='v'
         # For medium dataset
-        S = collect(1:50000)
-        A = collect(1:7)
-    elseif infile[6]=='l'
+        S = collect(1:55322)
+        A = collect(1:20)
+    elseif infile[1]=='a'
         # For medium dataset
-        S = collect(1:312020)
-        A = collect(1:9)
+        S = collect(1:109532)
+        A = collect(1:20)
     end
     Q = zeros(length(S), length(A))
     alpha = 0.01 # learning rate
-    # model = QLearning(S, A, gamma, Q, alpha)
+    model = QLearning(S, A, gamma, Q, alpha)
     # model = Sarsa(S, A, gamma, Q, alpha, nothing)
-    model = SarsaLambda(S, A, gamma, Q, Q, alpha, 0.5, nothing)
+    # model = SarsaLambda(S, A, gamma, Q, Q, alpha, 0.5, nothing)
 
     n_episodes = 0
     converge_thre = 0.001
