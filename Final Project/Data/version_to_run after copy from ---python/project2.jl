@@ -112,15 +112,15 @@ function compute(infile, outfile)
     if infile[1]=='d'
         # F(33635, 67270, 138725)
         print("S is defined")
-        S = collect(1:2000)
+        S = collect(1:500)
         A = collect(1:20)
     elseif infile[1]=='v'
         # For medium dataset
-        S = collect(1:2000)
+        S = collect(1:500)
         A = collect(1:20)
     elseif infile[1]=='a'
         # For medium dataset
-        S = collect(1:2000)
+        S = collect(1:500)
         A = collect(1:20)
     end
     Q = zeros(length(S), length(A))
